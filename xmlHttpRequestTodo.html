@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+  <button class="btn">List of Completed WOrk</button>  
+  <div class="list"></div>
+  <script>
+    let button=document.getElementsByClassName("btn")[0]
+    let list=document.getElementsByClassName("list")[0]
+    button.addEventListener("click",()=>{
+        let xhr=new XMLHttpRequest()
+        xhr.open("GET","https://jsonplaceholder.typicode.com/todos")
+        xhr.onload=function(){
+            let array=JSON.parse(xhr.responseText)
+            let completedTask=[]
+            for(let obj of array){
+                if(obj["completed"]===true){
+                    completedTask.push(obj)
+                }
+            }
+            console.log(completedTask)
+        }
+        xhr.send()
+    })
+  </script>
+</body>
+</html>

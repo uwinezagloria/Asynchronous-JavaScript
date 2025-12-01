@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>XHR</h1>
+    <button class="btn">Load post</button>
+    <div class="output"></div>
+    <script>
+       let button= document.getElementsByClassName("btn")[0]
+       button.addEventListener("click",()=>{
+        let xhr=new XMLHttpRequest()
+        xhr.open("GET","https://jsonplaceholder.typicode.com/posts/1")
+        xhr.onload=function(){
+            document.getElementsByClassName("output")[0].innerText=xhr.responseText
+        }
+        xhr.send()
+       })
+    </script>
+</body>
+</html>

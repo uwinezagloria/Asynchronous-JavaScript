@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>testing read State</h1>
+    <script>
+        function states(){
+            return new Promise((resolve)=>{
+                console.log("current state",document.readyState)
+                if(document.readyState==="complete"){
+                    resolve("document already completed loading")
+                    return
+                }
+                document.addEventListener("readystatechange",()=>{
+                    console.log("loading status",document.readyState)
+                    if(document.readyState==="complete"){
+                        resolve("loading completed")
+                    }
+                })
+            })
+        }
+     states().then((message)=>document.body.innerHTML+=`<p>${message}</p>`)
+    </script>
+</body>
+</html>
