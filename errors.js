@@ -1,0 +1,13 @@
+let message="something went wrong"
+let error=new Error(message)
+console.log(error.name)
+console.log(error.message)
+let syntaxError=new SyntaxError("syntax is not correct")
+console.log(syntaxError.name)
+console.log(syntaxError.message)
+let referenceError=new ReferenceError("there is reference error")
+console.log(referenceError.name)
+console.log(referenceError.message)
+let typeError=new TypeError("check the spelling")
+console.log(typeError.name)
+console.log(typeError.message)
