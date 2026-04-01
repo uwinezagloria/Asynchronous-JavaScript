@@ -1,0 +1,29 @@
+<script>
+    function fetchToDo(){
+        let xhr=new XMLHttpRequest()
+xhr.open("POST","https://jsonplaceholder.typicode.com/todos")
+xhr.setRequestHeader("Content-Type","application/json")
+xhr.setRequestHeader("User-Agent","MyCustomerAgent/1.0")
+xhr.onload=function(){
+    if(xhr.status===200){
+        let data=JSON.parse(xhr.responseText)
+        console.log("sucess",data)
+    }
+    else{
+        console.log(xhr.status)
+    }
+    
+}
+xhr.onerror=function(){
+        console.log("errror")
+    }
+      const payload = {
+        userId: 1,
+        title: "Learn XMLHttpRequest",
+        completed: false
+    };
+    xhr.send(JSON.stringify(payload))
+
+    }
+fetchToDo()
+</script>

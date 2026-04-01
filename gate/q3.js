@@ -20,7 +20,7 @@ getFastPosts().then((posts) => {
     let post2= fetch("https://this-may-not-exist.com/posts")
     let post3= fetch("https://jsonplaceholder.typicode.com/posts")
  
-let promise=await Promise.any([post1,post2,post3].filter(Boolean))
+let promise=await Promise.any([post1,post2,post3])
 let data=await promise.json()
 return data
  }
